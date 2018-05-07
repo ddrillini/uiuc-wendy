@@ -1,0 +1,24 @@
+old pc songs are in:
+    /itgdata/custom/Songs
+new pc songs are in:
+    /home/david/SM5-extra/ITG Songs
+
+make it work with other hardware:
+    reset drivers for current hardware:
+        from grub, select advanced options/recovery mode/emergency shell
+        mkinitcpio -p linux
+    rebuild piuio driver
+
+imaging drive:
+    clonezilla: default settings on everything.
+    disk-to-disk copy.
+
+toggle between pay/freeplay:
+    hold f3, push 1 (toggles between coin modes)
+
+change to borderless windowed instead of full screen. enables you to ctrl+left to get to a desktop.
+
+if you run
+lsmod | grep piuio
+you should get a response
+if the board is powered and seen by linux

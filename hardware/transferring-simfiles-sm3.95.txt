@@ -1,0 +1,12 @@
+# make the filesystem writable
+mount /itgdata -o remount,rw
+
+cache simfiles in a local sm3.95
+
+transfer simfiles + cache
+scp -r Cache root@192.168.1.4:/itgdata/custom
+scp -r PACK root@192.168.1.4:/itgdata/custom/Songs
+
+next time: just rename songs/courses/cache and 
+mv custom custom2
+cp everything but Songs, Courses and Cache

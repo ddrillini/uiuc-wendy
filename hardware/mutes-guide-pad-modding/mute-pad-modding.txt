@@ -1,0 +1,13 @@
+The first is 0.75" wide, and I put a strip of that UNDER the L-bracket (you can see the tiny bits of white poking out from under the sensor in the first pic). 0.75" is the exact width underneath the bracket, so this material is perfectly sized. Obviously you leave the outer protective peel on so that adhesive isn't exposed.
+
+On the top side of the bracket, I start with scraping all existing material off and then a single strip of the Gorilla tape. Note that this travel size is 1" wide, perfect size for the top of the L-bracket. This base layer is necessary before using the next material, which has a far stronger adhesive (so you can remove the modding more easily if you ever want to)
+
+The next step is the red-backed mounting adhesive tape. Again, we leave the red protective peel on obviously. This stuff is 1" wide too. I need to use two strips of this since my panel corners are routed and thus the panels need to be raised higher; you would probably only use one strip.
+
+I really like these mounting adhesives because they have a bit of give to them, making the panels more comfy to step on and giving them some bounce, but they are far more durable (and less prone to compacting) than craft foam.
+
+I use more strips of the Gorilla tape to tune each edge until the sensors are firing with even amounts of pressure, but not so sensitive that they're firing with just light finger taps on the panels. This step requires a lot of trial and error, because you have to keep removing/replacing the corner brackets (assuming you're not playing without the inner brackets; personally I hate bracketless)
+
+Finally, you will notice in the first picture that I also added modding to the corners of the switch frames, underneath where the corner brackets sit. This is necessary so that the panel corners don't get caught beneath the bracket receptors on the switch frames, which is quite easy after having modded your panels up higher. I use two squares of the 0.75" tape with a few layers of Gorilla tape on top; again, you would probably only use one layer of the 3M tape since your panel corners aren't routed.
+
+One other thing I have done recently (which is not pictured here) is to ultra-fine-tune even further with strips of Scotch tape on the L-brackets.

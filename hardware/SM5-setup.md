@@ -16,11 +16,10 @@ You should use the following for a pleasant experience:
 If you are setting up a cabinet, you should complete as many of the steps here as practical _before_ moving the computer into the cabinet, because cabinets do not have good default keyboard or mouse placement options. Also, if your cabinet has the original CRT, using Ubuntu's GUI on the 640x480 screen will be frustrating.
 
 * Install Ubuntu 16.04 LTS.
-* Install `ssh` and `rsync`, and generate SSH keys as needed. This will make transferring files much easier.
-* Install all of Stepmania's dependencies.
-	* The list on the wiki given is out of date. TODO
+* Run the `install.sh` script, which will automatically install necessary dependencies.
+* Generate host SSH keys.
 * Install `alsamixer`.
-* Install Stepmania. For ease, you should use the 5.0.12 binaries.
+* Install Stepmania. For ease, you should use the 5.0.12 Linux binaries.
 * Launch Stepmania once to generate all the initial save files.
 * Find your sound device using `alsamixer` TODO.
 * Set the script TODO to launch on login.

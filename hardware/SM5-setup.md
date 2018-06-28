@@ -24,7 +24,8 @@ If you are setting up a cabinet, you should complete as many of the steps here a
 * Find your sound device number using `alsamixer` TODO.
 * Set the script `boot.sh` TODO PUT to launch on login.
 * In `Preferences.ini`:
-	* `SoundDevice=hw:` followed by the device number you found earlier from `alsamixer`.
+	* `SoundDevice=hw:` followed by the device number you found earlier from `alsamixer`. This helps prevent microstuttering.
+	* `QuirksMode=1`. This enables compatibility with some OpenITG/SM3.95-compatible files.
 * Configure Stepmania to your heart's content.
 
 Other useful scripts (particularly for dedicabs) are located TODO.
@@ -40,7 +41,7 @@ As of the time of this writing, compiling the PIUIO driver does not yet work on 
 	* `LightsDriver=PIUIO_Leds`
 	* `InputDebounceTime=0.050` \[seconds] if you want to match stock ITG 2.
 * Fix the polling rate TODO.
-* Update your input mappings. Don't forget the coin door!
+* Update your input mappings. Don't forget the coin door and service buttons!
 
 You do not need to use a positive `JudgeWindowAdd` value with this setup.
 

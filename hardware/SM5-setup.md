@@ -25,7 +25,7 @@ If you are setting up a cabinet, you should complete as many of the steps here a
 * Set the script `boot.sh` TODO PUT to launch on login.
 * In `Preferences.ini`:
 	* `SoundDevice=hw:` followed by the device number you found earlier from `alsamixer`. This helps prevent microstuttering.
-	* `QuirksMode=1`. This enables compatibility with some OpenITG/SM3.95-compatible files.
+	* `QuirksMode=1`. This enables compatibility with some OpenITG/SM3.95-compatible files. You might need to rebuild the cache for changes to take effect.
 * Configure Stepmania to your heart's content.
 
 Other useful scripts (particularly for dedicabs) are located TODO.

@@ -18,14 +18,15 @@ If you are setting up a cabinet, you should complete as many of the steps here a
 * Install Ubuntu 16.04 LTS.
 * Run the `install.sh` TODO PUT script, which will automatically install necessary dependencies.
 * Generate host SSH keys.
-* Install `alsamixer`.
 * Install Stepmania. For ease, you should use the 5.0.12 Linux binaries.
-* Launch Stepmania once to generate all the initial save files.
-* Find your sound device number using `alsamixer` TODO.
+* Launch Stepmania once and then close it to generate all the initial save files.
+* Run the command `aplay -l` to [find your sound device number](https://askubuntu.com/questions/22031/what-are-my-audio-devices). TODO do you need subdevice number?
 * Set the script `boot.sh` TODO PUT to launch on login.
 * In `Preferences.ini`:
-	* `SoundDevice=hw:` followed by the device number you found earlier from `alsamixer`. This helps prevent microstuttering.
-	* `QuirksMode=1`. This enables compatibility with some OpenITG/SM3.95-compatible files. You might need to rebuild the cache for changes to take effect.
+	* `SoundDevice=hw:` followed by the device number you found earlier 
+	This prevents microstuttering.
+	* `QuirksMode=1`  
+	This enables compatibility with some OpenITG/SM3.95-compatible files. You will need to rebuild the cache for changes to this setting to take effect.
 * Configure Stepmania to your heart's content.
 
 Other useful scripts (particularly for dedicabs) are located TODO.
@@ -39,11 +40,12 @@ As of the time of this writing, compiling the PIUIO driver does not yet work on 
 	* Installation instructions are [here](https://askubuntu.com/questions/299676)
 * In `Preferences.ini`:
 	* `LightsDriver=PIUIO_Leds`
-	* `InputDebounceTime=0.050` \[seconds] if you want to match stock ITG 2.
+	* `InputDebounceTime=0.050` \[seconds]  
+	This recommendation matches stock ITG 2.
 * Fix the polling rate TODO.
 * Update your input mappings. Don't forget the coin door and service buttons!
 
-You do not need to use a positive `JudgeWindowAdd` value with this setup.
+You [should not use](http://aaronin.jp/boards/viewtopic.php?t=9459) a positive `JudgeWindowAdd` value with this setup.
 
 ## `xorg.conf`
 This is only necessary for ITG 2 dedicabs with original CRTs. Ubuntu will probably autodetect higher resolutions automatically.

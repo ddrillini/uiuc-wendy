@@ -23,7 +23,7 @@ If you are setting up a cabinet, you should complete as many of the steps here a
 * Run the command `aplay -l` to [find your sound device number](https://askubuntu.com/questions/22031/what-are-my-audio-devices). TODO do you need subdevice number?
 * Set the script `boot.sh` TODO PUT to launch on login.
 * In `Preferences.ini`:
-	* `SoundDevice=hw:` followed by the device number you found earlier 
+	* `SoundDevice=hw:` followed by the device number you found earlier  
 	This prevents microstuttering.
 	* `QuirksMode=1`  
 	This enables compatibility with some OpenITG/SM3.95-compatible files. You will need to rebuild the cache for changes to this setting to take effect.

@@ -1,2 +1,2 @@
 # uiuc-wendy
-issue tracker for UIUC's itg cabinet
+Information repository and information tracker for UIUC's ITG cabinet

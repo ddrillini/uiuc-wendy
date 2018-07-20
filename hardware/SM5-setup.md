@@ -1,5 +1,5 @@
 # SM5 Setup
-This guide assumes that you are assembling a new, dedicated computer for Stepmania, from scratch.
+This guide assumes that you are assembling a new, dedicated computer, exclusively for Stepmania, from scratch.
 
 This guide assumes that you know how to add your preferred songs, themes, noteskins, etcetera to Stepmania.
 
@@ -16,20 +16,23 @@ You should use the following for a pleasant experience:
 If you are setting up a cabinet, you should complete as many of the steps here as practical _before_ moving the computer into the cabinet, because cabinets do not have good default keyboard or mouse placement options. Also, if your cabinet has the original CRT, using Ubuntu's GUI on the 640x480 screen will be frustrating.
 
 * Install Ubuntu 16.04 LTS.
-* Run the `install.sh` TODO PUT script, which will automatically install necessary dependencies.
+* Run the `install.sh` script, which automatically installs necessary dependencies for Stepmania.
 * Generate host SSH keys.
-* Install Stepmania. For ease, you should use the 5.0.12 Linux binaries.
-* Launch Stepmania once and then close it to generate all the initial save files.
-* Run the command `aplay -l` to [find your sound device number](https://askubuntu.com/questions/22031/what-are-my-audio-devices). TODO do you need subdevice number?
-* Set the script `boot.sh` TODO PUT to launch on login.
+* Install Stepmania.
+	* Use 5.1 b1 if you need any of the below features. You will need to compile from source TODO instructions, but the installation script should have installed all the necessary dependencies. Themes that support 5.0.12 should run on 5.1 b1 without modification.
+		* Custom songs from USB profiles
+		* (Some) NotITG modifier support
+	* Otherwise, use 5.0.12, as Linux binaries are readily available.
+	* 5.2 (what was formerly 5.1 before a change in scope; see 5.1 release notes) is not currently recommended due to lack of themer support.
+* Launch and close Stepmania once to generate all the initial save files.
+* Run the command `aplay -l` to [find your sound device number](https://askubuntu.com/questions/22031/what-are-my-audio-devices).
+* Set the `boot.sh` script to launch on login. Change the last line to execute Stepmania from its installation location on your setup.
 * In `Preferences.ini`:
 	* `SoundDevice=hw:` followed by the device number you found earlier  
 	This prevents microstuttering.
 	* `QuirksMode=1`  
 	This enables compatibility with some OpenITG/SM3.95-compatible files. You will need to rebuild the cache for changes to this setting to take effect.
 * Configure Stepmania to your heart's content.
-
-Other useful scripts (particularly for dedicabs) are located TODO.
 
 ## PIUIO Setup
 As of the time of this writing, compiling the PIUIO driver does not yet work on Ubuntu 18.04 LTS.

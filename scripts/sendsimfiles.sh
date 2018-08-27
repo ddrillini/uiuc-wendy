@@ -1,36 +1,40 @@
-# for ben
-# put this line in bashrc
-# source /path/to/sendsimfiles.sh
+# set these in .bashrc
+# export folder=""
+# export localpath=""
 
-# USAGE
-# itgwifi: switch to machine's wifi network
-# sendsimfiles: send files, should print when done
-# rebootitg: reboot the machine to reload simfiles
-# rewifi: go back to normal wifi
-# also, "pitchbent" will load you into the folder so you can look around/delete stuff.
-
-ITGMACHINEIP="2" # change this if the machine's not responding: it means that the IP address changed
-
-alias itgwifi="networksetup -setairportnetwork en0 SC-00-TA-100 CutieMarkCrusaders\!Yay\!"
-alias rewifi="networksetup -setairportpower airport off ; sleep 2 ; networksetup -setairportpower airport on"
-alias rebootitg="ssh david@192.168.1.$ITGMACHINEIP -t 'sudo shutdown -r now'"
-alias howdo="echo 'itgwifi, sendsimfiles, rebootitg, rewifi'"
-alias pitchbent="ssh david@192.168.1.$ITGMACHINEIP -t 'cd /home/david/SM5-extra/ITG\ Songs/Notice\ Me\ BetaPack ; bash'"
+alias howdo="echo 'sendsimfiles, reloadsongs.'"
+ITGMACHINEIP="5" # change this if the machine's not responding: it means that the IP address changed
 
 # script: check if we're inside his song folder, and then copy the files over if we are.
-sendsimfiles() {
-        cd ~/Google\ Drive/Notice\ Me\ BetaPack
-        currentdir=${PWD##*/}
-        if [ "$currentdir" == "Notice Me BetaPack" ]; then
-                rsync -vru --delete ./ david@192.168.1.$ITGMACHINEIP:"/home/david/SM5-extra/ITG\ Songs/Notice\ Me\ BetaPack" || failed
-                echo "Simfiles successfully transferred."
-        else
-				failed
-        fi
+function sendsimfiles() {
+
+	if [ -z "$folder" ] # if $folder is not set
+		printf "\nPlease set $folder in .bashrc.\n"
+		exit 1
+	fi
+
+	printf "\nMake sure you're on the right wifi network.\n"
+
+	cd $localpath
+
+	# verify we're inside their song folder.
+	currentdir=${PWD##*/}
+	if [ "$currentdir" == "$folder" ]; then
+		rsync -vru --delete ./ wendy@192.168.1.$ITGMACHINEIP:"/home/wendy/songs/$folder" || failed
+	else
+		printf "\nYour folder doesn't exist or isn't in the right place.\n"
+		failed
+	fi
+
+	printf "\nSimfiles successfully transferred.\n"
 }
 
-failed() {
+function reloadsongs() {
+	ssh wendy@192.168.1.$ITGMACHINEIP -t 'exec /home/wendy/util/reload-songs.sh'
+}
+
+function failed() {
 	echo "something's wrong. contact ian or andrew."
-	return 1
+	exit 1
 }
 

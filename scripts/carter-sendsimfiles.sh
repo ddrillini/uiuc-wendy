@@ -15,6 +15,7 @@ function sendsimfiles() {
         cd ~/charts/CarterTheQ
         currentdir=${PWD##*/}
         if [ "$currentdir" == "CarterTheQ" ]; then
+				echo "\nMake sure you're on the right wifi network.\n"
                 rsync -vru --delete ./ wendy@192.168.1.$ITGMACHINEIP:"/home/wendy/songs/CarterTheQ" || failed
                 echo "Simfiles successfully transferred."
         else

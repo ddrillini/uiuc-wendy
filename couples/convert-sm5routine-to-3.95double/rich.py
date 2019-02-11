@@ -105,7 +105,7 @@ if __name__ == "__main__":
 #       usage()
     input = askopenfilename(filetypes=[("sm files","*.sm")])
     output = asksaveasfilename(filetypes=[("sm files","*.sm")],
-    initialfile=[('output.sm')])
+        initialfile=[('output.sm')])
 #   if len(sys.argv) == 2:
 #       if input.lower().endswith(".sm"):
 #           output = input[:-3] + "-couples" + input[-3:]

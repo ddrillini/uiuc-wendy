@@ -1,0 +1,135 @@
+`<ActorFrame><children>
+
+	<!-- Three letters; 1 = placement, 2 = color, 3 = direction -->
+	`<ActorFrame OnCommand="rotationz,90;x,SCREEN_CENTER_X-270;y,SCREEN_CENTER_Y" ><children>
+		<ActorFrame InitCommand="%function(self) couples_lbl = self; end" OnCommand="zoom,0" ><children> <Layer File="blue" /> <Layer File="white" OnCommand="croptop,-0.5;cropbottom,1.7;fadetop,0.1;fadebottom,0.1;queuecommand,Loop" LoopCommand="croptop,-0.5;cropbottom,1;linear,0.75;croptop,1.5;cropbottom,-0.8;queuecommand,Loop" /> </children></ActorFrame>
+		<ActorFrame InitCommand="%function(self) couples_lrl = self; end" OnCommand="zoom,0" ><children> <Layer File="red" /> <Layer File="white" OnCommand="croptop,-0.5;cropbottom,1.7;fadetop,0.1;fadebottom,0.1;queuecommand,Loop" LoopCommand="croptop,-0.5;cropbottom,1;linear,0.75;croptop,1.5;cropbottom,-0.8;queuecommand,Loop" /> </children></ActorFrame>
+		<ActorFrame InitCommand="%function(self) couples_lbr = self; end" OnCommand="zoom,0;rotationz,180" ><children> <Layer File="blue" /> <Layer File="white" OnCommand="croptop,-0.5;cropbottom,1.7;fadetop,0.1;fadebottom,0.1;queuecommand,Loop" LoopCommand="croptop,-0.5;cropbottom,1;linear,0.75;croptop,1.5;cropbottom,-0.8;queuecommand,Loop" /> </children></ActorFrame>
+		<ActorFrame InitCommand="%function(self) couples_lrr = self; end" OnCommand="zoom,0;rotationz,180" ><children> <Layer File="red" /> <Layer File="white" OnCommand="croptop,-0.5;cropbottom,1.7;fadetop,0.1;fadebottom,0.1;queuecommand,Loop" LoopCommand="croptop,-0.5;cropbottom,1;linear,0.75;croptop,1.5;cropbottom,-0.8;queuecommand,Loop" /> </children></ActorFrame>
+	</children></ActorFrame>
+		
+	`<ActorFrame OnCommand="rotationz,180;x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+175" ><children>
+		<ActorFrame InitCommand="%function(self) couples_dbu = self; end" OnCommand="zoom,0" ><children> <Layer File="blue" /> <Layer File="white" OnCommand="croptop,-0.5;cropbottom,1.7;fadetop,0.1;fadebottom,0.1;queuecommand,Loop" LoopCommand="croptop,-0.5;cropbottom,1;linear,0.75;croptop,1.5;cropbottom,-0.8;queuecommand,Loop" /> </children></ActorFrame>
+		<ActorFrame InitCommand="%function(self) couples_dru = self; end" OnCommand="zoom,0" ><children> <Layer File="red" /> <Layer File="white" OnCommand="croptop,-0.5;cropbottom,1.7;fadetop,0.1;fadebottom,0.1;queuecommand,Loop" LoopCommand="croptop,-0.5;cropbottom,1;linear,0.75;croptop,1.5;cropbottom,-0.8;queuecommand,Loop" /> </children></ActorFrame>
+	</children></ActorFrame>
+	
+	`<ActorFrame OnCommand="rotationz,90;x,SCREEN_CENTER_X+270;y,SCREEN_CENTER_Y" ><children>
+		<ActorFrame InitCommand="%function(self) couples_rbl = self; end" OnCommand="zoom,0" ><children> <Layer File="blue" /> <Layer File="white" OnCommand="croptop,-0.5;cropbottom,1.7;fadetop,0.1;fadebottom,0.1;queuecommand,Loop" LoopCommand="croptop,-0.5;cropbottom,1;linear,0.75;croptop,1.5;cropbottom,-0.8;queuecommand,Loop" /> </children></ActorFrame>
+		<ActorFrame InitCommand="%function(self) couples_rrl = self; end" OnCommand="zoom,0" ><children> <Layer File="red" /> <Layer File="white" OnCommand="croptop,-0.5;cropbottom,1.7;fadetop,0.1;fadebottom,0.1;queuecommand,Loop" LoopCommand="croptop,-0.5;cropbottom,1;linear,0.75;croptop,1.5;cropbottom,-0.8;queuecommand,Loop" /> </children></ActorFrame>
+		<ActorFrame InitCommand="%function(self) couples_rbr = self; end" OnCommand="zoom,0;rotationz,180" ><children> <Layer File="blue" /> <Layer File="white" OnCommand="croptop,-0.5;cropbottom,1.7;fadetop,0.1;fadebottom,0.1;queuecommand,Loop" LoopCommand="croptop,-0.5;cropbottom,1;linear,0.75;croptop,1.5;cropbottom,-0.8;queuecommand,Loop" /> </children></ActorFrame>
+		<ActorFrame InitCommand="%function(self) couples_rrr = self; end" OnCommand="zoom,0;rotationz,180" ><children> <Layer File="red" /> <Layer File="white" OnCommand="croptop,-0.5;cropbottom,1.7;fadetop,0.1;fadebottom,0.1;queuecommand,Loop" LoopCommand="croptop,-0.5;cropbottom,1;linear,0.75;croptop,1.5;cropbottom,-0.8;queuecommand,Loop" /> </children></ActorFrame>
+	</children></ActorFrame>
+	
+	<Layer
+		Type="Quad"
+		InitCommand="hidden,1"
+		OnCommand="sleep,1000"
+	/>
+	
+	<Layer
+		Type="Quad"
+		InitCommand="hidden,1"
+		OnCommand="%function(self)
+				fgcurcommand = 1;
+				padfgtweentime = 1;
+				arrowrot1 = 0;
+				arrowrot2 = 0;
+				
+				curindicpattern = 1;
+				indicactivity = {
+								{94,'rbr'},
+								{98,'dbu'},
+								{104,'rrr'},
+								{108,'dru'},
+								{112,'lbl'},
+								{116,'dbu'},
+								{120,'rrr'},
+								{128,'dru'},
+								};
+				
+				
+				function SwitchIndicator(a1)
+					if a1 == 'rrr' or a1 == 'rbr' then
+						_G['couples_'..a1]:decelerate(0.5);
+						_G['couples_'..a1]:zoom(1.5);
+						_G['couples_'..a1]:accelerate(0.5);
+						_G['couples_'..a1]:addy(-100);
+						_G['couples_'..a1]:linear(0.1);
+						_G['couples_'..a1]:zoom(0);
+						_G['couples_'..a1]:linear(0.1);
+						_G['couples_'..a1]:addy(100);
+					elseif a1 == 'lrl' or a1 == 'lbl' then
+						_G['couples_'..a1]:decelerate(0.5);
+						_G['couples_'..a1]:zoom(1.5);
+						_G['couples_'..a1]:accelerate(0.5);
+						_G['couples_'..a1]:addy(100);
+						_G['couples_'..a1]:linear(0.1);
+						_G['couples_'..a1]:zoom(0);
+						_G['couples_'..a1]:linear(0.1);
+						_G['couples_'..a1]:addy(-100);
+					elseif a1 == 'lrr' or a1 == 'lbr' then
+						_G['couples_'..a1]:linear(0.1);
+						_G['couples_'..a1]:addy(100);
+						_G['couples_'..a1]:linear(0.1);
+						_G['couples_'..a1]:zoom(1.5);
+						_G['couples_'..a1]:decelerate(0.6);
+						_G['couples_'..a1]:addy(-100);
+						_G['couples_'..a1]:sleep(0.2);
+						_G['couples_'..a1]:linear(0.1);
+						_G['couples_'..a1]:zoom(0);
+					elseif a1 == 'rrl' or a1 == 'rbl' or a1 == 'dbu' or a1 == 'dru' then
+						_G['couples_'..a1]:linear(0.1);
+						_G['couples_'..a1]:addy(-100);
+						_G['couples_'..a1]:linear(0.1);
+						_G['couples_'..a1]:zoom(1.5);
+						_G['couples_'..a1]:decelerate(0.6);
+						_G['couples_'..a1]:addy(100);
+						_G['couples_'..a1]:sleep(0.2);
+						_G['couples_'..a1]:linear(0.1);
+						_G['couples_'..a1]:zoom(0);
+					end
+				end
+				
+				
+				self:queuecommand('Update');
+			end"
+		
+		UpdateCommand="%function(self)
+		
+			--if GAMESTATE:IsCourseMode() then
+			
+				if curindicpattern <= table.getn(indicactivity) and GAMESTATE:GetSongBeat()>=indicactivity[curindicpattern][1] then
+					SwitchIndicator(indicactivity[curindicpattern][2],indicactivity[curindicpattern][3],indicactivity[curindicpattern][4]);
+					curindicpattern = curindicpattern + 1;
+				end
+				
+				
+				
+				self:queuecommand('Update2');
+			
+			--end
+			
+		end"
+  
+
+		Update2Command="%function(self)
+		self:sleep(0.02);
+		self:queuecommand('Update');
+		end"
+		
+		
+		
+		P1StepLeftMessageCommand=""
+		P1StepDownMessageCommand=""
+		P1StepUpMessageCommand=""
+		P1StepRightMessageCommand=""
+		
+		P2StepLeftMessageCommand=""
+		P2StepDownMessageCommand=""
+		P2StepUpMessageCommand=""
+		P2StepRightMessageCommand=""
+		
+	/>
+
+	
+</children></ActorFrame>

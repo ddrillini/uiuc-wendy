@@ -48,7 +48,7 @@ def rich(sm, output):
         # any routine chart
         for b,n in notes.layers[1]:
             new_stops.add(b)
-            blues.append((b+1.0/48,n))
+            blues.append((b+1.0/48,n)) # looks like this is 1/192nd later -ian
         combined = []
 
         ri = bi = 0  # Combine the red and blue layers

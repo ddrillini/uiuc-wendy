@@ -1,9 +1,8 @@
-# set these in .bashrc
-# export folder=""
+# set this in .bashrc
+# export folder="" # name of their folder in songs
 
-# this one doesn't work and needs to be set in this file. /shrug.
-# # export localpath=""
-localpath="whatever"
+# # export localpath="" # this one doesn't work and needs to be set in this file. /shrug.
+localpath="whatever" # "/c/Users/NAME/Stepmania 5.1/Songs/"
 
 alias howdo="echo 'sendsimfiles, reloadsongs.'"
 ITGMACHINEIP="5" # change this if the machine's not responding: it means that the IP address changed

@@ -1,0 +1,14 @@
+
+<html>
+	<head>
+		<title>wendy</title>
+	</head>
+
+	<body>
+	{% if output %} {# assuming output is a list #}
+		{% for i in output %}
+			<p>{{ i }}</p>
+		{% endfor %}
+	{% endif %}
+	</body>
+</html>

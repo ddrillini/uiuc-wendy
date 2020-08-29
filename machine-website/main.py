@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from subprocess import run, PIPE
-from os import linesep
+from output_filter import basic_filter
 
 # TODO: RELIES ON ~/song BEING SYMLINKED TO THE STEPMANIA SONGS DIR
 
@@ -37,14 +37,16 @@ def main():
 # Display packs
 @app.route('/display-packs', methods=['GET'])
 def display_packs():
-    out = run(['ls', '/home/wendy/songs'], stdout=PIPE, stderr=PIPE)
+    out = run(['ls', '/home/woofers/Applications/stepmania/Songs/'], \
+              stdout=PIPE, \
+              stderr=PIPE)
     
     if out.returncode != 0:
         stderr_str = out.stderr.decode('utf-8')
         return render_template(ERROR_HTML, error=stderr_str)
 
     stdout_str = out.stdout.decode('utf-8')
-    song_list = stdout_str.split(os.linesep)
+    song_list = basic_filter(stdout_str)
     return render_template(SONG_LIST_HTML, output=song_list)
 
 # TODO: Reboot machine

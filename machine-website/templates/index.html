@@ -1,50 +1,50 @@
 <html>
-    <head>
-        <title>wendy</title>
-    </head>
+  <head>
+    <title>wendy</title>
+  </head>
 
-    <body>
-        <h1>Wendy Website</h1><p>Reboot the machine or change to couples mode here!</p>
+  <body>
+    <h1>Wendy Website</h1><p>Reboot the machine or change to couples mode here!</p>
 
-        <!-- TODO autogenerate these from the flask routes or some API specification like swagger -->
-        <form action="/display-packs" method="get">
-            <input type="submit" value="Display packs">
-        </form>
+    <!-- TODO autogenerate these from the flask routes or some API specification like swagger -->
+    <form action="/display-packs" method="get">
+      <input type="submit" value="Display packs">
+    </form>
 
-        <h4>The following have not yet been implemented.</h4>
+    <h4>The following have not yet been implemented.</h4>
 
-        <form action="/reboot-machine" method="post">
-            <input type="submit" value="Reboot machine">
-        </form>
+    <form action="/reboot-machine" method="post">
+      <input type="submit" value="Reboot machine">
+    </form>
 
-        <form action="/restart-stepmania" method="post">
-            <input type="submit" value="Restart StepMania">
-        </form>
+    <form action="/restart-stepmania" method="post">
+      <input type="submit" value="Restart StepMania">
+    </form>
 
-        <form action="/switch-3.95" method="post">
-            <input type="submit" value="Switch to Couples mode">
-        </form>
+    <form action="/switch-3.95" method="post">
+      <input type="submit" value="Switch to Couples mode">
+    </form>
 
-        <form action="/switch-5" method="post">
-            <input type="submit" value="Switch back from Couples mode">
-        </form>
+    <form action="/switch-5" method="post">
+      <input type="submit" value="Switch back from Couples mode">
+    </form>
 
-        <form action="/add-simfiles" method="post">
-            <input type="submit" value="Add simfiles to the machine">
-        </form>
+    <form action="/add-simfiles" method="post">
+      <input type="submit" value="Add simfiles to the machine">
+    </form>
 
-        <form action="/rm-simfiles" method="post">
-            <input type="submit" value="Remove simfiles from the machine">
-        </form>
-    </body>
+    <form action="/rm-simfiles" method="post">
+      <input type="submit" value="Remove simfiles from the machine">
+    </form>
+  </body>
 
-    {% if response %}
-        todo report things in tables
-    {% endif %}
+  {% if response %}
+    todo report things in tables
+  {% endif %}
 
-    {% if error %}
-        todo report errors thru html
-    {% endif %}
+  {% if error %}
+    todo report errors thru html
+  {% endif %}
 
 </html>
 

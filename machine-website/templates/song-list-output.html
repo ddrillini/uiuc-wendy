@@ -1,21 +1,21 @@
 <html>
-    <head>
-        <title>wendy</title>
-    </head>
+  <head>
+    <title>wendy</title>
+  </head>
 
-    <h4>SONGS</h4>
+  <h4>SONGS</h4>
 
-    <body>
+  <body>
     {% if output %} {# assuming output is a list #}
-        {% for i in output %}
-            <p>{{ i }}</p>
-        {% endfor %}
+      {% for i in output %}
+        <p>{{ i }}</p>
+      {% endfor %}
     {% endif %}
 
     <p></p> <!-- for spacing btwn output & button -->
 
     <form action="/" method="get">
-            <input type="submit" value="Return">
-        </form>
-    </body>
+      <input type="submit" value="Return">
+    </form>
+  </body>
 </html>

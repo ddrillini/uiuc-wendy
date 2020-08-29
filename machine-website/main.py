@@ -37,9 +37,7 @@ def main():
 # Display packs
 @app.route('/display-packs', methods=['GET'])
 def display_packs():
-    out = run(['ls', '/home/woofers/Applications/stepmania/Songs/'], \
-              stdout=PIPE, \
-              stderr=PIPE)
+    out = run(['ls', 'symlink_to_songs'], stdout=PIPE, stderr=PIPE)
     
     if out.returncode != 0:
         stderr_str = out.stderr.decode('utf-8')
